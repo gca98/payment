@@ -35,8 +35,6 @@ namespace payment
         public void ConfigureServices(IServiceCollection services)
         {
 
-            // services.AddDbContext<ApiDbContext>(options =>
-            //     options.UseSqlite(Configuration.GetConnectionString("TokenConnection")));
             services.AddDbContext<ApiDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),new MySqlServerVersion(new Version(8, 0, 11))));
             services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
@@ -72,8 +70,6 @@ namespace payment
              options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApiDbContext>();
 
-            
-            // services.Add(new ServiceDescriptor(typeof(Models.PaymentDetailsContext), new Models.PaymentDetailsContext(Configuration.GetConnectionString("DefaultConnection"))));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "payment", Version = "v1" });
