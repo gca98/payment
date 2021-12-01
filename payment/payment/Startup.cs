@@ -18,6 +18,7 @@ using payment.Models;
 using payment.Data;
 using payment.Configuration;
 
+
 namespace payment
 {
     public class Startup
@@ -34,9 +35,10 @@ namespace payment
         public void ConfigureServices(IServiceCollection services)
         {
 
+            // services.AddDbContext<ApiDbContext>(options =>
+            //     options.UseSqlite(Configuration.GetConnectionString("TokenConnection")));
             services.AddDbContext<ApiDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("TokenConnection")));
-
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),new MySqlServerVersion(new Version(8, 0, 11))));
             services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
             services.AddControllers();
             var key = Encoding.ASCII.GetBytes(Configuration["JwtConfig:Secret"]);
@@ -70,12 +72,12 @@ namespace payment
              options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApiDbContext>();
 
-
-            services.Add(new ServiceDescriptor(typeof(Models.PaymentDetailsContext), new Models.PaymentDetailsContext(Configuration.GetConnectionString("DefaultConnection"))));
+            
+            // services.Add(new ServiceDescriptor(typeof(Models.PaymentDetailsContext), new Models.PaymentDetailsContext(Configuration.GetConnectionString("DefaultConnection"))));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "payment", Version = "v1" });
-                c.OperationFilter<AuthResponsesOperationFilter>();
+                
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     In = ParameterLocation.Header,

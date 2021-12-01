@@ -6,11 +6,12 @@ namespace payment.Data
 {
     public class ApiDbContext : IdentityDbContext
     {
+        public DbSet<PaymentDetailsItem> paymentdetail { get; set;}
         public virtual DbSet<RefreshToken> RefreshToken{get;set;}
 
         public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
         {
-
-        }
+            
+        }        
     }
 }

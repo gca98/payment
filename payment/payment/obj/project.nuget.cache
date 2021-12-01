@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZsSRrDc+IZqCUZU0My2wxYCFhbFAZ2d6Zm9XVxdMUk0ZzSxVFo5KIwS6HG2H1lzordZ5aMmcV731PukEJRTshg==",
+  "dgSpecHash": "HQctTtbNTp5DkerRV4LhmHhgINTGjLH4MWdbol1lYa7wFG3E18N/4NhcCf0R76yln0685K6U1EJo7TBdqBNSEg==",
   "success": true,
   "projectFilePath": "E:\\KERJA\\OCBC\\FINAL C#\\payment\\payment\\payment.csproj",
   "expectedPackageFiles": [
@@ -56,6 +56,7 @@
     "C:\\Users\\giova\\.nuget\\packages\\microsoft.win32.registry\\4.3.0\\microsoft.win32.registry.4.3.0.nupkg.sha512",
     "C:\\Users\\giova\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\giova\\.nuget\\packages\\mysql.data\\8.0.27\\mysql.data.8.0.27.nupkg.sha512",
+    "C:\\Users\\giova\\.nuget\\packages\\mysqlconnector\\1.3.13\\mysqlconnector.1.3.13.nupkg.sha512",
     "C:\\Users\\giova\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
     "C:\\Users\\giova\\.nuget\\packages\\nuget.commandline.xplat\\5.11.0\\nuget.commandline.xplat.5.11.0.nupkg.sha512",
     "C:\\Users\\giova\\.nuget\\packages\\nuget.commands\\5.11.0\\nuget.commands.5.11.0.nupkg.sha512",
@@ -69,6 +70,7 @@
     "C:\\Users\\giova\\.nuget\\packages\\nuget.projectmodel\\5.11.0\\nuget.projectmodel.5.11.0.nupkg.sha512",
     "C:\\Users\\giova\\.nuget\\packages\\nuget.protocol\\5.11.0\\nuget.protocol.5.11.0.nupkg.sha512",
     "C:\\Users\\giova\\.nuget\\packages\\nuget.versioning\\5.11.0\\nuget.versioning.5.11.0.nupkg.sha512",
+    "C:\\Users\\giova\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\5.0.3\\pomelo.entityframeworkcore.mysql.5.0.3.nupkg.sha512",
     "C:\\Users\\giova\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\giova\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
     "C:\\Users\\giova\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",

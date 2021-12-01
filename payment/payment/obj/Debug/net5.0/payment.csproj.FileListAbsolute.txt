@@ -98,3 +98,5 @@ E:\KERJA\OCBC\FINAL C#\payment\payment\obj\Debug\net5.0\payment.dll
 E:\KERJA\OCBC\FINAL C#\payment\payment\obj\Debug\net5.0\ref\payment.dll
 E:\KERJA\OCBC\FINAL C#\payment\payment\obj\Debug\net5.0\payment.pdb
 E:\KERJA\OCBC\FINAL C#\payment\payment\obj\Debug\net5.0\payment.genruntimeconfig.cache
+E:\KERJA\OCBC\FINAL C#\payment\payment\bin\Debug\net5.0\MySqlConnector.dll
+E:\KERJA\OCBC\FINAL C#\payment\payment\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll

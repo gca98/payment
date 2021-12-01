@@ -64,14 +64,7 @@ namespace payment.Controllers
                 var isCreated = await _userManager.CreateAsync(newUser, user.Password);
                 if (isCreated.Succeeded)
                 {
-                    var jwtToken = GenerateJwtToken(newUser);
-
-                    // return Ok(new RegistrationResponse()
-                    // {
-                    //     Success = true,
-                    //     Token = jwtToken
-                    // });
-                    
+                    var jwtToken = await GenerateJwtToken(newUser);                    
                     return Ok(jwtToken);
                 }
                 else
@@ -123,7 +116,7 @@ namespace payment.Controllers
                 IsRevoked = false,
                 UserId = user.Id,
                 AddedDate = DateTime.UtcNow,
-                ExpiryDate = DateTime.UtcNow.AddMonths(6),
+                ExpiryDate = DateTime.UtcNow.AddSeconds(600),
                 Token = RandomString(35) + Guid.NewGuid()
             };
 
@@ -174,14 +167,7 @@ namespace payment.Controllers
                     });
                 }
 
-                var jwtToken = GenerateJwtToken(existingUser);
-
-                // return Ok(new RegistrationResponse()
-                // {
-                //     Success = true,
-                //     Token = jwtToken
-                // });
-
+                var jwtToken = await GenerateJwtToken(existingUser);
                 return Ok(jwtToken);
             }
 
