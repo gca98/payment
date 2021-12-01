@@ -46,7 +46,7 @@ namespace payment.Controllers
             {
                 await _context.paymentdetail.AddAsync(datapyment);
                 await _context.SaveChangesAsync();
-                return Ok(datapyment);
+                return Ok($"Insert \nData\ncardOwnerName = {datapyment.cardOwnerName}\ncardNumber = {datapyment.cardNumber}\nexpirationDate = {datapyment.expirationDate}\nsecurityCode = {datapyment.securityCode}");
             }
             else
             {
@@ -73,7 +73,7 @@ namespace payment.Controllers
 
             await _context.SaveChangesAsync();
 
-            return Ok(existItem);
+            return Ok($"Update \nData\ncardOwnerName = {existItem.cardOwnerName}\ncardNumber = {existItem.cardNumber}\nexpirationDate = {existItem.expirationDate}\nsecurityCode = {existItem.securityCode}");
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteItem(int id)
@@ -86,65 +86,9 @@ namespace payment.Controllers
             }
             _context.paymentdetail.Remove(existItem);
             await _context.SaveChangesAsync();
-            return Ok(existItem);
+            return Ok($"Deleted \nData\ncardOwnerName = {existItem.cardOwnerName}\ncardNumber = {existItem.cardNumber}\nexpirationDate = {existItem.expirationDate}\nsecurityCode = {existItem.securityCode}");
             
         }
-
-
-        // [HttpGet(Name = "Get All")]
-        // public ActionResult<IEnumerable<PaymentDetailsItem>> GetPaymentDetailsItems()
-        // {
-        //     _context = HttpContext.RequestServices.GetService(typeof(PaymentDetailsContext)) as PaymentDetailsContext;
-        //     return _context.GetAllPaymentDetails();
-        // }
-        // [HttpGet("{id}", Name = "Get Where")]
-        // public ActionResult<IEnumerable<PaymentDetailsItem>> GetPaymentDetailsItemsById(string id)
-        // {
-        //     _context = HttpContext.RequestServices.GetService(typeof(PaymentDetailsContext)) as PaymentDetailsContext;
-        //     return _context.GetPaymentDetails(id);
-        // }
-        // [HttpPost]
-        // public async Task<IActionResult> CreatePayment([FromBody] PaymentDetailsItem datapyment)
-        // {
-        //     if (ModelState.IsValid)
-        //     {
-        //         _context = HttpContext.RequestServices.GetService(typeof(PaymentDetailsContext)) as PaymentDetailsContext;
-        //         _context.InsertPaymentDetails(datapyment);
-        //         return new JsonResult("Insert " + datapyment.cardOwnerName);
-        //     }
-        //     else
-        //     {
-        //         return new JsonResult("Data Tidak masuk");
-        //     }
-        // }
-        // [HttpPut("{id}")]
-        // public async Task<IActionResult> EditPayment(int id,[FromBody] PaymentDetailsItem datapyment)
-        // {
-        //     if (ModelState.IsValid)
-        //     {
-        //         _context = HttpContext.RequestServices.GetService(typeof(PaymentDetailsContext)) as PaymentDetailsContext;
-        //         _context.UpdatePaymentDetails(id,datapyment);
-        //         return new JsonResult("Update Data " +  datapyment.cardOwnerName);
-        //     }
-        //     else
-        //     {
-        //         return new JsonResult("Can't update");
-        //     }
-        // }
-        // [HttpDelete("{id}")]
-        // public async Task<IActionResult> HapusPayment(int id)
-        // {
-        //     if (ModelState.IsValid)
-        //     {
-        //         _context = HttpContext.RequestServices.GetService(typeof(PaymentDetailsContext)) as PaymentDetailsContext;
-        //         _context.DeletePaymentDetails(id);
-        //         return new JsonResult("Deleted Data");
-        //     }
-        //     else
-        //     {
-        //         return new JsonResult("Can't Delete");
-        //     }
-        // }
 
     }
 }
