@@ -53,14 +53,14 @@ namespace payment.Controllers
                 return new JsonResult("Data Tidak masuk");
             }
         }
-        [HttpPut]
-        public async Task<IActionResult> UpdateItem(PaymentDetailsItem datapyment)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateItem(int id, PaymentDetailsItem datapyment)
         {
-            // if (id != datapyment.paymentDetailId)
-            // {
-            //     return BadRequest();
-            // }
-            var existItem = await _context.paymentdetail.FirstOrDefaultAsync(x=>x.paymentDetailId==datapyment.paymentDetailId);
+            if (id != datapyment.paymentDetailId)
+            {
+                return BadRequest();
+            }
+            var existItem = await _context.paymentdetail.FirstOrDefaultAsync(x=>x.paymentDetailId==id);
 
             if (existItem == null)
             {
