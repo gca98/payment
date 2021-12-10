@@ -9,7 +9,7 @@ using payment.Data;
 namespace payment.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20211201050627_init")]
+    [Migration("20211210021544_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -91,7 +91,7 @@ namespace payment.Migrations
                         .HasColumnType("tinyint(1)");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -245,10 +245,10 @@ namespace payment.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("AddedDate")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("ExpiryDate")
-                        .HasColumnType("datetime");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("IsRevoked")
                         .HasColumnType("tinyint(1)");
