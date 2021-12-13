@@ -37,6 +37,8 @@ namespace payment
 
             services.AddDbContext<ApiDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection"),new MySqlServerVersion(new Version(8, 0, 11))));
+
+            services.AddCors();
             services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
             services.AddControllers();
             var key = Encoding.ASCII.GetBytes(Configuration["JwtConfig:Secret"]);
@@ -113,7 +115,14 @@ namespace payment
 
             app.UseHttpsRedirection();
 
+            
+
             app.UseRouting();
+            
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
 
             app.UseAuthorization();
 
