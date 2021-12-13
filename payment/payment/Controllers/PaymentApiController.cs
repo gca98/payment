@@ -46,7 +46,8 @@ namespace payment.Controllers
             {
                 await _context.paymentdetail.AddAsync(datapyment);
                 await _context.SaveChangesAsync();
-                return Ok($"Insert \nData\ncardOwnerName = {datapyment.cardOwnerName}\ncardNumber = {datapyment.cardNumber}\nexpirationDate = {datapyment.expirationDate}\nsecurityCode = {datapyment.securityCode}");
+                return Ok(new { message = "User created" });
+                // return Ok($"Insert \nData\ncardOwnerName = {datapyment.cardOwnerName}\ncardNumber = {datapyment.cardNumber}\nexpirationDate = {datapyment.expirationDate}\nsecurityCode = {datapyment.securityCode}");
             }
             else
             {
@@ -72,8 +73,8 @@ namespace payment.Controllers
             existItem.securityCode = datapyment.securityCode;
 
             await _context.SaveChangesAsync();
-
-            return Ok($"Update \nData\ncardOwnerName = {existItem.cardOwnerName}\ncardNumber = {existItem.cardNumber}\nexpirationDate = {existItem.expirationDate}\nsecurityCode = {existItem.securityCode}");
+            return Ok(new { message = "User updated" });
+            // return Ok($"Update \nData\ncardOwnerName = {existItem.cardOwnerName}\ncardNumber = {existItem.cardNumber}\nexpirationDate = {existItem.expirationDate}\nsecurityCode = {existItem.securityCode}");
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteItem(int id)
@@ -86,7 +87,8 @@ namespace payment.Controllers
             }
             _context.paymentdetail.Remove(existItem);
             await _context.SaveChangesAsync();
-            return Ok($"Deleted \nData\ncardOwnerName = {existItem.cardOwnerName}\ncardNumber = {existItem.cardNumber}\nexpirationDate = {existItem.expirationDate}\nsecurityCode = {existItem.securityCode}");
+            // return Ok($"Deleted \nData\ncardOwnerName = {existItem.cardOwnerName}\ncardNumber = {existItem.cardNumber}\nexpirationDate = {existItem.expirationDate}\nsecurityCode = {existItem.securityCode}");
+            return Ok(new { message = "User deleted" });
             
         }
 
